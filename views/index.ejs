@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(135deg, #74ebd5, #ACB6E5); }
+        .container { background: white; padding: 20px; border-radius: 12px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); text-align: center; width: 320px; }
+        h2 { margin-bottom: 15px; color: #333; }
+        input { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 25px; font-size: 16px; transition: 0.3s; }
+        input:focus { border-color: #74ebd5; box-shadow: 0px 0px 5px rgba(116, 235, 213, 0.5); }
+        .btn { margin-top: 15px; width: 100%; padding: 12px; border: none; border-radius: 25px; background: #74ebd5; color: white; font-size: 16px; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background: #5dc9b3; }
+        .weather-result { margin-top: 15px; font-size: 18px; font-weight: bold; color: #444; }
+        .footer { margin-top: 20px; font-size: 14px; color: #fff; background: rgba(0, 0, 0, 0.2); padding: 10px; border-radius: 8px; text-align: center; }
+        .footer span { color: #ffdd57; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Weather App</h2>
+        <form id="weatherForm">
+            <input type="text" id="city" name="city" placeholder="Enter city name" required>
+            <button type="submit" class="btn">Check Weather</button>
+        </form>
+        <div class="weather-result" id="weatherResult">🌤
+            <% if (weather) { %>
+                <% if (!weather.error) { %>
+                    <h3><%= weather.city %></h3>
+                    <p>Temperature: <%= weather.temperature %>°C</p>
+                    <p>Condition: <%= weather.condition %></p>
+                <% } else { %>
+                    <h3 style="color: red;">⚠️ <%= weather.error %></h3> 
+                <% } %>
+            <% } else { %>
+                <p>Please enter a proper city to get weather details.</p>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="footer">
+        🚀 Made by <span>Bhanu</span>
+    </div>
+</body>
+</html>
