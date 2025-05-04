@@ -48,6 +48,7 @@ app.get("/", async(req,res) =>{
 })
 
 // Start the server
-app.listen(port, () => {
-    console.log(`App is running on http://localhost:${port}`);
+const PORT = process.env.PORT || 2000;
+app.listen(PORT, () => {
+  console.log(`App is running on http://localhost:${PORT}`);
 });
